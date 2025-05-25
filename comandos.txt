@@ -1,4 +1,30 @@
 - Para iniciar nuestro servidor utilizamos 
     npm run start
 
--
+-Instalar la librería de MongoDB
+    npm install mongodb dotenv
+
+-Configurar la conexión a MongoDB, creamos un archivo .env  
+    MONGO_URI=mongodb://localhost:27017/inventarioPapeleria ( URL de conexión para la base de datos)
+
+- Construir y ejecutar los contenedores Docker 
+    docker-compose up -d
+
+-Este comando reconstruirá los contenedores desde cero y asegurará que el backend y MongoDB se ejecuten correctamente dentro de Docker
+    docker-compose up --build -d
+
+- Verifica que los contenedores están corriendo
+    docker ps
+
+- Detener los contenedores
+    docker-compose down
+
+-Conectarse a la base de datos dentro de Docker
+    docker exec -it mongodb_container mongosh
+
+
+- El puerto 3000 está siendo usado por com.docker.backend.exe (Docker) y wslrelay.exe (WSL).  
+    Esto significa que Docker ya está corriendo tu backend dentro del contenedor.
+
+- Con el siguiente comando podemos ver los logs del backend 
+    docker logs -f backend_container
