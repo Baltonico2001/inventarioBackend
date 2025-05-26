@@ -7,6 +7,13 @@
 -Configurar la conexión a MongoDB, creamos un archivo .env  
     MONGO_URI=mongodb://localhost:27017/inventarioPapeleria ( URL de conexión para la base de datos)
 
+
+-Instalar mongoose 
+    npm install mongoose --save
+
+- Restar contenedor
+    docker restart backend_container
+    
 - Construir y ejecutar los contenedores Docker 
     docker-compose up -d
 
