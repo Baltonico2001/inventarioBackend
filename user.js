@@ -87,11 +87,45 @@ async function handlerUser(req, res) {
   }
 
   if (method === "POST") {
+    let data = "";
+    req.on("data", (chunk) => (data += chunk));
+    req.on("end", async () => {
+      console.log("✅ Datos antes de procesar:", data); // 🔎 Verificación completa
+
+      try {
+        const userData = JSON.parse(data);
+        console.log(
+          "🔎 Datos procesados sin validar:",
+          JSON.stringify(userData, null, 2)
+        ); // 🔥 Confirmación de estructura
+
+        // 🔥 Eliminamos la validación estricta y guardamos cualquier dato recibido
+        const user = await createUser(userData);
+        res.status(201).json(user);
+      } catch (err) {
+        console.error("🚨 Error al procesar datos:", err);
+        res
+          .status(400)
+          .json({
+            error: "Error en formato de datos recibidos",
+            recibido: data,
+          });
+      }
+    });
+  }
+  
+  
+  
+  
+  
+
+  /*if (method === "POST") {
     try {
       const body = await new Promise((resolve, reject) => {
         let data = "";
         req.on("data", (chunk) => (data += chunk));
         req.on("end", () => resolve(data));
+        console.log(" Datos recibidos del front en backend:", data);
         req.on("error", (err) => reject(err));
       });
 
@@ -109,7 +143,7 @@ async function handlerUser(req, res) {
       res.end(JSON.stringify({ error: err.message }));
     }
     return;
-  }
+  } */
   
 
   if (method === "PUT") {
