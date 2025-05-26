@@ -1,18 +1,19 @@
 const http = require("http");
 const { handlerUser } = require("./user.js");
 const { handlerProduct } = require("./product.js");
+const {handlerCategory} = require("./category.js");
 
 const conectarDB = require("./database.js");
 
 const routes = {
   "/user": handlerUser,
   "/product": handlerProduct,
+  "/category": handlerCategory,
 };
 
 conectarDB(); // Inicia la conexión a MongoDB
 
-console.log(" Inicializando servidor...");
-process.stdout.write("📌 Esto debería aparecer en los logs\n");
+//console.log(" Inicializando servidor...");
 const server = http.createServer((req, res) => {
   console.log(` Url Recibida: ${req.url}`);
 

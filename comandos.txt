@@ -11,6 +11,7 @@
 -Instalar mongoose 
     npm install mongoose --save
 
+
 -Esto obligará a Docker a reconstruir la imagen y actualizar el código dentro del contenedor
     docker-compose up --build
 
