@@ -1,4 +1,4 @@
-const Import = require("./models/Import");
+const Import = require("../models/Import");
 const mongoose = require("mongoose");
 
 // Crear una importación
