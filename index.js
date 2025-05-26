@@ -1,8 +1,11 @@
 const http = require("http");
+
+// Importamos los manejadores de rutas
 const { handlerUser } = require("./user.js");
 const { handlerProduct } = require("./product.js");
 const {handlerCategory} = require("./category.js");
 const { handlerImport } = require("./import.js");
+
 
 const conectarDB = require("./database.js");
 
