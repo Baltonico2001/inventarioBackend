@@ -1,7 +1,8 @@
 const http = require("http");
-const { handlerUser } = require("./user.js");
-const { handlerProduct } = require("./product.js");
-const {handlerCategory} = require("./category.js");
+const { handlerUser } = require("./handlers/user.js");
+const { handlerProduct } = require("./handlers/product.js");
+const { handlerCategory } = require("./handlers/category.js");
+const { handlerImport } = require("./handlers/import.js");
 
 const conectarDB = require("./database.js");
 
@@ -9,6 +10,7 @@ const routes = {
   "/user": handlerUser,
   "/product": handlerProduct,
   "/category": handlerCategory,
+  "/import": handlerImport,
 };
 
 conectarDB(); // Inicia la conexión a MongoDB
