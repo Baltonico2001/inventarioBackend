@@ -37,7 +37,7 @@ async function createProduct(newProduct) {
         throw new Error(" Producto no encontrado.");
       }
   
-      console.log(`✅ Producto actualizado: ${JSON.stringify(product)}`);
+      console.log(` Producto actualizado: ${JSON.stringify(product)}`);
       return product;
     } catch (error) {
       console.error(" Error al actualizar producto:", error);
@@ -68,7 +68,7 @@ async function createProduct(newProduct) {
   
   // Manejador de peticiones HTTP
   async function handlerProduct(req, res) {
-    console.log(`📌 Ejecutando handlerProduct para la URL: ${req.url}`); // ✅ Verifica que realmente está siendo llamado
+    console.log(` Ejecutando handlerProduct para la URL: ${req.url}`); // ✅Verifica que realmente está siendo llamado
     console.log(` Petición recibida: ${req.url}`);
 
     const method = req.method;
@@ -169,5 +169,3 @@ async function createProduct(newProduct) {
   }
   
   exports.handlerProduct = handlerProduct;
-
-
