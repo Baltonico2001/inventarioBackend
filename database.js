@@ -1,14 +1,19 @@
-const { MongoClient } = require("mongodb");
+const mongoose = require("mongoose");
 require("dotenv").config();
 
 const uri = process.env.MONGO_URI;
-const client = new MongoClient(uri);
-const dbName = "inventarioPapeleria";
 
 async function conectarDB() {
-  await client.connect();
-  console.log(" Conectado a MongoDB en Docker!");
-  return client.db(dbName);
+  try {
+    await mongoose.connect(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("Conectado a MongoDB!");
+  } catch (error) {
+    console.error("Error al conectar con MongoDB:", error);
+    process.exit(1); // Cierra la aplicación si la conexión falla
+  }
 }
 
 module.exports = conectarDB;
