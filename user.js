@@ -6,7 +6,7 @@ async function createUser(newUser) {
   try {
     const user = new User(newUser); // `user` ahora está bien definido
     await user.save(); // Guarda el usuario en MongoDB
-    console.log(`✅ User created: ${JSON.stringify(user.toObject())}`); // Convertimos a objeto antes de imprimir
+    console.log(` Usuario Creado: ${JSON.stringify(user.toObject())}`); // Convertimos a objeto antes de imprimir
     return user;
   } catch (error) {
     console.error(" Error al crear usuario:", error);
@@ -38,7 +38,7 @@ async function updateUser(id, newData) {
       throw new Error(" Usuario no encontrado.");
     }
 
-    console.log(`✅ Usuario actualizado: ${JSON.stringify(user)}`);
+    console.log(` Usuario actualizado: ${JSON.stringify(user)}`);
     return user;
   } catch (error) {
     console.error(" Error al actualizar usuario:", error);
